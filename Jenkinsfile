@@ -14,6 +14,7 @@ stage ('Restore PACKAGES') {
              bat "dotnet restore"
           }
         }
+
 stage('Build') {
      steps {
             bat 'dotnet build --configuration Release'
@@ -21,8 +22,11 @@ stage('Build') {
    }
    stage('Publish') {
      steps {
-           bat 'dotnet publish  --configuration Release'
+           bat 'dotnet publish pipelines-dotnet-core.csproj -c Release'
       }
    }
+
+    
+
  }
 }
