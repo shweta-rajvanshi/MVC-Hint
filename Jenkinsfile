@@ -6,7 +6,7 @@ dotnet = 'path\\to\\dotnet.exe'
 stages {
 stage ('Checkout') {
             steps {
-                 git url: 'https://github.com/shweta-rajvanshi/MVC-Hint',branch: 'master'
+                 git url: 'https://github.com/shweta-rajvanshi/pipelines-dotnet-core',branch: 'master'
             }
 }
 stage ('Restore PACKAGES') {     
@@ -22,14 +22,14 @@ stage('Build') {
    }
    stage('Publish') {
      steps {
-           bat 'dotnet publish MVC-Hint.csproj -c Release'
+           bat 'dotnet publish pipelines-dotnet-core.csproj -c Release'
       }
    }
 
     stage('deploy') {
         steps {
         azureWebAppPublish azureCredentialsId: params.azure_cred_id,
-            resourceGroup: "MyResourceGroup1", appName: "jenkinssample1997", sourceDirectory: "bin/Release/netcoreapp2.2/publish/"
+            resourceGroup: "MyResourceGroup", appName: "jenkinssample1997", sourceDirectory: "bin/Release/netcoreapp2.2/publish/"
         }
     }
 
