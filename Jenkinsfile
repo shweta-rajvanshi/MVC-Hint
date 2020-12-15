@@ -6,7 +6,7 @@ dotnet = 'path\\to\\dotnet.exe'
 stages {
 stage ('Checkout') {
             steps {
-                 git url: 'https://github.com/shweta-rajvanshi/MVC-Hint',branch: 'master'
+                 git url: 'https://github.com/shweta-rajvanshi/pipelines-dotnet-core',branch: 'master'
             }
 }
 stage ('Restore PACKAGES') {     
